@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 550" width="400" height="550">
+  <defs>
+    <!-- Gradient màu đỏ rực rỡ, chuyên nghiệp cho PDF -->
+    <linearGradient id="pdfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5252" /> 
+      <stop offset="100%" stop-color="#D32F2F" />
+    </linearGradient>
+    
+    <!-- Bóng đổ mượt mà cho cảm giác 3D (Fluent Design) -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.25" flood-color="#D32F2F" />
+    </filter>
+  </defs>
+
+  <!-- Nền trắng tinh khôi -->
+  <rect width="400" height="550" fill="#ffffff" />
+  
+  <!-- Viền xám siêu nhạt cho mượt -->
+  <rect width="398" height="548" x="1" y="1" fill="none" stroke="#f1f5f9" stroke-width="2" rx="16" />
+
+  <!-- Cụm Icon -->
+  <g transform="translate(115, 140) scale(1.7)">
+    
+    <!-- Trang giấy phía sau (Bản lề bị gập nhẹ) -->
+    <path d="M 30 5 L 85 5 L 85 85 L 15 85 L 15 20 Z" fill="#cbd5e1" />
+    <path d="M 32 7 L 83 7 L 83 83 L 17 83 L 17 22 Z" fill="#f8fafc" />
+    <path d="M 15 20 L 30 20 L 30 5 Z" fill="#e2e8f0" />
+    
+    <!-- Các dòng kẻ tài liệu trên giấy -->
+    <rect x="45" y="30" width="30" height="4" fill="#cbd5e1" rx="2" />
+    <rect x="45" y="45" width="30" height="4" fill="#cbd5e1" rx="2" />
+    <rect x="45" y="60" width="20" height="4" fill="#cbd5e1" rx="2" />
+    <rect x="45" y="75" width="30" height="4" fill="#cbd5e1" rx="2" />
+
+    <!-- Khối PDF màu đỏ có bóng đổ -->
+    <rect width="55" height="55" x="5" y="25" rx="12" fill="url(#pdfGrad)" filter="url(#shadow)" />
+    
+    <!-- Chữ PDF to và nổi bật -->
+    <text x="32.5" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">PDF</text>
+    
+    <!-- Dấu trang trí hoặc vạch trắng bên dưới chữ -->
+    <rect x="22.5" y="62" width="20" height="3" fill="#ffffff" rx="1.5" opacity="0.8" />
+  </g>
+
+  <!-- Chữ hiển thị tiêu đề -->
+  <text x="200" y="390" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" fill="#1e293b" text-anchor="middle">PDF</text>
+  <text x="200" y="430" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="800" fill="#64748b" text-anchor="middle" letter-spacing="4">DOCUMENT</text>
+</svg>
