@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import DocumentCard from './components/DocumentCard'
 import DocumentViewerModal from './components/DocumentViewerModal'
 import UploadDocumentModal from './components/UploadDocumentModal'
+import YoutubePlaylistsModal from './components/YoutubePlaylistsModal'
 import { supabase } from './lib/supabase'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   
   // States for new features
   const [showUploadModal, setShowUploadModal] = useState(false)
+  const [showYoutubeModal, setShowYoutubeModal] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [currentFolderId, setCurrentFolderId] = useState(null)
   const [viewMode, setViewMode] = useState('grid') // 'grid' | 'list'
@@ -114,9 +116,28 @@ function App() {
     return (doc.folder_id === currentFolderId) || (!doc.folder_id && !currentFolderId)
   })
 
+  const handleOpenDemo = () => {
+    setSelectedDoc({
+      id: "demo-28tech",
+      title: "[C++]. Vì Sao Nên Học Lập Trình C++",
+      file_url: "https://blog.28tech.com.vn/c-vi-sao-nen-hoc-lap-trinh-c",
+      views: 999,
+      cover_url: ""
+    })
+  }
+
+  const handleOpenYoutube = () => {
+    setShowYoutubeModal(true)
+  }
+
   return (
     <div className="text-slate-900 min-h-screen flex flex-col font-sans relative">
-      <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <Header 
+        searchQuery={searchQuery} 
+        setSearchQuery={setSearchQuery} 
+        onOpenDemo={handleOpenDemo} 
+        onOpenYoutube={handleOpenYoutube} 
+      />
 
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
           
@@ -319,6 +340,10 @@ function App() {
 
       {showUploadModal && (
         <UploadDocumentModal onClose={() => setShowUploadModal(false)} onSuccess={handleUploadSuccess} currentFolderId={currentFolderId} />
+      )}
+
+      {showYoutubeModal && (
+        <YoutubePlaylistsModal onClose={() => setShowYoutubeModal(false)} />
       )}
     </div>
   )

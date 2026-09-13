@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-export default function Header({ searchQuery, setSearchQuery }) {
+export default function Header({ searchQuery, setSearchQuery, onOpenDemo, onOpenYoutube }) {
   const searchInputRef = useRef(null);
 
   useEffect(() => {
@@ -25,8 +25,26 @@ export default function Header({ searchQuery, setSearchQuery }) {
                     </div>
                 </div>
                 
-                <div className="hidden sm:flex items-center">
-                    <div className="bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors rounded-lg px-3 py-1.5 flex items-center gap-3 w-64 cursor-text" onClick={() => searchInputRef.current?.focus()}>
+                <div className="hidden md:flex items-center gap-3">
+                    {/* Nút Demo Nhúng Web 28tech (Màu xanh) */}
+                    <button 
+                        onClick={onOpenDemo}
+                        className="bg-blue-50 text-blue-600 hover:bg-blue-100 px-3 py-1.5 rounded-lg text-sm font-bold flex items-center gap-2 transition-colors border border-blue-200 shadow-sm"
+                        title="Xem thử tính năng nhúng Web"
+                    >
+                        <img src="https://cdn-blog.28tech.com.vn/media/core/logo/favicon.png" alt="28tech" className="w-4 h-4 object-contain" /> Web 28tech
+                    </button>
+
+                    {/* Nút Demo Playlists Youtube (Màu đỏ) */}
+                    <button 
+                        onClick={onOpenYoutube}
+                        className="bg-red-50 text-red-600 hover:bg-red-100 px-3 py-1.5 rounded-lg text-sm font-bold flex items-center gap-2 transition-colors border border-red-200 shadow-sm"
+                        title="Xem thử danh sách Youtube"
+                    >
+                        <i className="fab fa-youtube text-base"></i> Học C++ 28tech
+                    </button>
+
+                    <div className="bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors rounded-lg px-3 py-1.5 flex items-center gap-3 w-48 lg:w-64 cursor-text ml-2" onClick={() => searchInputRef.current?.focus()}>
                         <i className="fas fa-search text-slate-400 text-sm"></i>
                         <input 
                             ref={searchInputRef}
