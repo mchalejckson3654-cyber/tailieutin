@@ -172,7 +172,7 @@ export default function UploadDocumentModal({ onClose, onSuccess, currentFolderI
       setIsSubmitting(true);
       setGlobalError('');
       try {
-        let finalCoverUrl = formData.cover_url || `https://placehold.co/400x550/0F172A/E63946?text=FILE\\nDrive&font=Source+Code+Pro`;
+        let finalCoverUrl = formData.cover_url || '/pdf-cover.svg';
         const { data, error } = await supabase.from('documents').insert([{
           title: formData.title,
           category: 'Tài liệu',

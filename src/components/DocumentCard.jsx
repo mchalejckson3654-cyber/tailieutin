@@ -18,7 +18,8 @@ export default function DocumentCard({ doc, onOpen, delayIndex }) {
           referrerPolicy="no-referrer"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = `https://placehold.co/400x550/0F172A/E63946?text=PDF\\nFile&font=Source+Code+Pro`;
+            // Dùng ảnh mặc định nếu file ảnh bị lỗi
+            e.target.src = doc.title.toLowerCase().includes('.doc') ? '/word-cover.svg' : '/pdf-cover.svg';
           }}
         />
 
