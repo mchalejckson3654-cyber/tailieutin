@@ -11,7 +11,7 @@ export default function DocumentCard({ doc, onOpen, delayIndex }) {
       {/* 1. Bìa */}
       <div className="relative h-56 w-full bg-slate-900 overflow-hidden cursor-pointer border-b border-slate-200" onClick={() => onOpen(doc)}>
         <img
-          src={doc.cover_url}
+          src={doc.cover_url?.includes('placehold.co') ? (doc.title.toLowerCase().includes('.doc') ? '/word-cover.svg' : '/pdf-cover.svg') : doc.cover_url}
           alt={doc.title}
           className="w-full h-full object-cover group-hover:scale-110 group-hover:opacity-80 transition-all duration-500"
           loading="lazy"

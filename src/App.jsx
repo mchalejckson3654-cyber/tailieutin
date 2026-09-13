@@ -294,7 +294,7 @@ function App() {
                         >
                           <td className="px-6 py-4 flex items-center gap-3">
                             <div className="w-8 h-10 shrink-0 bg-slate-200 rounded overflow-hidden">
-                               <img src={doc.cover_url} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                               <img src={doc.cover_url?.includes('placehold.co') ? (doc.title.toLowerCase().includes('.doc') ? '/word-cover.svg' : '/pdf-cover.svg') : doc.cover_url} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                             </div>
                             <span className="font-bold text-slate-700 line-clamp-1">{doc.title}</span>
                           </td>
